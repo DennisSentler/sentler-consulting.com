@@ -209,14 +209,17 @@ h3 { margin: 0 0 .4rem; font-size: 1.1rem; color: var(--dark); line-height: 1.3;
 
 /* About */
 .about { display: grid; gap: 2.5rem; grid-template-columns: 1fr; margin-top: 2rem; }
-@media (min-width: 55rem) { .about { grid-template-columns: 1.4fr 1fr; } }
+@media (min-width: 55rem) { .about { grid-template-columns: 1.5fr 1fr; align-items: center; } }
 .about p { margin: 0 0 1rem; }
-.principles { list-style: none; margin: 0; padding: 0; display: grid; gap: .9rem; }
-.principles li {
-  background: var(--peach-soft); border-left: 4px solid var(--dark);
-  padding: .9rem 1.1rem; border-radius: 0 .5rem .5rem 0;
+.portrait {
+  margin: 0 .7rem .7rem 0; max-width: 24rem; width: 100%; justify-self: center;
+  overflow: hidden; border-radius: 1rem; box-shadow: .7rem .7rem 0 var(--peach);
 }
-.principles strong { display: block; color: var(--dark); }
+@media (max-width: 54.99rem) { .portrait { order: -1; max-width: 17rem; margin: 0 auto .7rem; translate: -.35rem 0; } }
+.portrait img {
+  display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 18%;
+  transform: scale(1.22); transform-origin: 53% 29%;
+}
 
 /* Collaboration */
 .ticks { list-style: none; margin: 0; padding: 0; display: grid; gap: .9rem 2rem; grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr)); }
