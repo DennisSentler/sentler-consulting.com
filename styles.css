@@ -144,17 +144,11 @@ h3 { margin: 0 0 .4rem; font-size: 1.1rem; color: var(--dark); line-height: 1.3;
   color: var(--muted); text-align: center; margin-bottom: 1.5rem;
 }
 .refs h2::after { display: none; }
-.marquee { position: relative; display: flex; overflow: hidden; }
-/* Weiche Kanten per Overlay statt mask-image (mask + Animation lässt auf iOS Safari Bilder verschwinden) */
-.marquee::before, .marquee::after {
-  content: ""; position: absolute; top: 0; bottom: 0; width: 8%; z-index: 1; pointer-events: none;
-}
-.marquee::before { left: 0; background: linear-gradient(90deg, var(--bg), rgba(255, 255, 255, 0)); }
-.marquee::after { right: 0; background: linear-gradient(270deg, var(--bg), rgba(255, 255, 255, 0)); }
+.marquee { display: flex; overflow: hidden; }
 .marquee-track {
   flex: 0 0 auto; min-width: 100%; list-style: none; margin: 0; padding: 0;
   display: flex; align-items: center; justify-content: space-around; gap: 4rem; padding-right: 4rem;
-  animation: scroll 28s linear infinite; will-change: transform;
+  animation: scroll 28s linear infinite;
 }
 .marquee:hover .marquee-track { animation-play-state: paused; }
 .marquee-track img { height: 2.6rem; width: auto; max-width: none; }
@@ -169,11 +163,10 @@ h3 { margin: 0 0 .4rem; font-size: 1.1rem; color: var(--dark); line-height: 1.3;
 .marquee-track .interzero img { position: relative; top: -1px; }
 .marquee-track .windhoff img { position: relative; top: 1px; }
 .marquee-track .mindsquare img { position: relative; top: 1px; }
-@keyframes scroll { to { transform: translate3d(-100%, 0, 0); } }
+@keyframes scroll { to { transform: translateX(-100%); } }
 @media (prefers-reduced-motion: reduce) {
   .marquee { flex-wrap: wrap; justify-content: center; }
-  .marquee::before, .marquee::after { display: none; }
-  .marquee-track { animation: none; will-change: auto; flex-wrap: wrap; justify-content: center; padding: 0; gap: 1.5rem 3rem; }
+  .marquee-track { animation: none; flex-wrap: wrap; justify-content: center; padding: 0; gap: 1.5rem 3rem; }
   .marquee-track[aria-hidden="true"] { display: none; }
 }
 
