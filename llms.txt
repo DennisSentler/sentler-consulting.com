@@ -1,0 +1,17 @@
+# Sentler Consulting – Dennis Sentler
+
+> Unabhängiger SAP Integration Consultant und Architect aus Hamburg. Remote und vor Ort, Projekte auf Deutsch und Englisch.
+
+Dennis Sentler begleitet Integrationsprojekte von Architektur und Konzept über Produktauswahl, Entwicklung und Tests bis zum Go-live. Schwerpunkte: SAP Integration Suite auf der SAP BTP, Migration von SAP PI/PO, Edge Integration Cell und On-Premise-Runtime, API Management.
+
+Zusammenarbeit: Festpreis bei klarem Scope (inkl. Support und 3 Revisionen) oder Abrechnung nach Stunden bei wachsendem Scope. Auf Wunsch Bericht zur aktuellen Beauftragungslage als Freiberufler.
+
+## Seiten
+- [Startseite](https://sentler-consulting.com/): Leistungen, Expertise, Zusammenarbeit, Kontakt
+- [Impressum](https://sentler-consulting.com/impressum.html)
+- [Datenschutz](https://sentler-consulting.com/datenschutz.html)
+
+## Kontakt
+- E-Mail: office@sentler-consulting.com
+- LinkedIn: https://www.linkedin.com/in/dsentler
+- Kostenloses Erstgespräch: https://cal.com/dennis-sentler/kennenlernen

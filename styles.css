@@ -93,6 +93,8 @@ a:hover { color: var(--dark-2); }
   line-height: 1.1; letter-spacing: -.02em; max-width: 18ch;
 }
 .hero h1 span { color: var(--peach); }
+.hero .signature { display: block; width: clamp(16rem, 62vw, 30rem); max-width: 100%; height: auto; margin: 0 0 1.25rem -.4rem; }
+.hero .lead strong { color: var(--peach); font-weight: 700; }
 .hero .lead { max-width: 42rem; font-size: 1.2rem; color: #dbe6eb; margin: 0 0 2rem; }
 .cta { display: flex; flex-wrap: wrap; gap: .85rem; margin-bottom: 2.25rem; }
 .facts {
