@@ -67,7 +67,15 @@ a:hover { color: var(--dark-2); }
   text-decoration: none; font-weight: 600; font-size: .95rem;
   color: var(--dark); padding: .35rem 0; border-bottom: 2px solid transparent;
 }
-.site-header nav a:hover { border-bottom-color: var(--peach); }
+.site-header nav a:hover { color: var(--dark-2); }
+.site-header nav a[aria-current="true"] { color: var(--dark-2); }
+.site-header nav ul { position: relative; }
+.nav-indicator {
+  position: absolute; left: 0; top: 0; height: 2px; width: 0; background: var(--peach);
+  border-radius: 2px; opacity: 0; pointer-events: none;
+}
+.nav-indicator.ready { transition: transform .35s cubic-bezier(.4, 0, .2, 1), width .35s cubic-bezier(.4, 0, .2, 1), opacity .2s; }
+@media (prefers-reduced-motion: reduce) { .nav-indicator.ready { transition: none; } }
 
 /* Buttons */
 .btn {

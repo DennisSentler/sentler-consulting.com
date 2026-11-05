@@ -56,7 +56,7 @@
   <meta property="og:description" content="SAP Integration Suite, PI/PO-Migration und Edge Integration Cell – unabhängig, direkt, aus Hamburg.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://sentler-consulting.com/assets/logo.png">
-  <link rel="stylesheet" href="styles.css?v=20261105-marquee2">
+  <link rel="stylesheet" href="styles.css?v=20261105-nav3">
 </head>
 <body>
   <a class="skip" href="#main">Zum Inhalt springen</a>
@@ -337,5 +337,48 @@
       </nav>
     </div>
   </footer>
+  <script>
+    (function () {
+      var links = Array.prototype.slice.call(document.querySelectorAll('.site-header nav a[href^="#"]'));
+      var items = links.map(function (a) { return { a: a, s: document.querySelector(a.getAttribute('href')) }; })
+                       .filter(function (i) { return i.s; });
+      if (!items.length) return;
+      var ticking = false;
+      var ul = links[0].closest('ul');
+      var bar = document.createElement('span');
+      bar.className = 'nav-indicator';
+      bar.setAttribute('aria-hidden', 'true');
+      ul.appendChild(bar);
+      var shown = false;
+      function place(a) {
+        if (!a) { bar.style.opacity = '0'; return; }
+        var u = ul.getBoundingClientRect(), r = a.getBoundingClientRect();
+        bar.style.width = r.width + 'px';
+        bar.style.transform = 'translate(' + (r.left - u.left) + 'px,' + (r.bottom - u.top - 2) + 'px)';
+        bar.style.opacity = '1';
+        if (!shown) { shown = true; requestAnimationFrame(function () { bar.classList.add('ready'); }); }
+      }
+      var current = null;
+      function update() {
+        ticking = false;
+        var line = window.innerHeight * 0.35;
+        var atEnd = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4;
+        var next = null;
+        items.forEach(function (i) { if (i.s.getBoundingClientRect().top <= line) next = i; });
+        if (atEnd) next = items[items.length - 1];
+        if (next === current && shown) return;
+        current = next;
+        items.forEach(function (i) {
+          if (i === current) i.a.setAttribute('aria-current', 'true'); else i.a.removeAttribute('aria-current');
+        });
+        place(current && current.a);
+      }
+      function onResize() { place(current && current.a); onScroll(); }
+      function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onResize);
+      update();
+    })();
+  </script>
 </body>
 </html>
